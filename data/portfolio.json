@@ -1,0 +1,16 @@
+{
+  "name": "Dilendra Pant",
+  "headline": "Senior Software Engineer • Java • Microservices • Cloud",
+  "location": "New Delhi, India",
+  "summary": "With over 9 years in software development, I design and build scalable, secure microservices and cloud-native systems.",
+  "skills": [
+    "Java",
+    "Spring Boot",
+    "Spring Cloud",
+    "Kafka",
+    "AWS",
+    "Docker"
+  ],
+  "email": "pant.dilendra@gmail.com",
+  "linkedin": "https://linkedin.com/in/dilendra"
+}

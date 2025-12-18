@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{.Name}}</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>{{.Name}}</h1>
+  <p class="headline">{{.Headline}}</p>
+  <p class="location">{{.Location}}</p>
+</header>
+
+<section>
+  <p>{{.Summary}}</p>
+</section>
+
+<section>
+  <h2>Skills</h2>
+  <ul>
+    {{range .Skills}}
+      <li>{{.}}</li>
+    {{end}}
+  </ul>
+</section>
+
+<section>
+  <h2>Contact</h2>
+  <p>Email: {{.Email}}</p>
+  <a href="{{.LinkedIn}}" target="_blank">LinkedIn</a>
+</section>
+
+<footer>
+  Made with ❤️ · © 2025 Dilendra Pant
+</footer>
+
+</body>
+</html>
