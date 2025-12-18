@@ -1,0 +1,46 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Go build artifacts
+*.test
+*.out
+*.a
+*.o
+bin/
+dist/
+
+# Go workspace files
+go.work
+go.work.sum
+
+# Vendor (ignore if you don’t commit vendor)
+vendor/
+
+# IDE / Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Coverage reports
+coverage.out
+coverage.html
+
+# Environment files
+.env
+.env.*
+
+# Debug
+__debug_bin
