@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dilendra Pant — Java | Microservices | AWS</title>
+  <meta name="description" content="Dilendra Pant — Senior Software Engineer. Java, Spring Boot, Microservices, Kafka, AWS. Resume & contact.">
+  
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header" role="banner" aria-label="Primary header">
+    <div class="nav-inner">
+      <a class="brand" href="#home" aria-label="Go to home">
+        <span class="logo" aria-hidden="true">
+          <img src="svg/dp-logo.png" alt="Dilendra logo" onerror="this.style.display='none'">
+        </span>
+        <div>
+          <div class="name">Dilendra Pant</div>
+          <div class="muted" style="font-size:12px">Java | Microservices | AWS</div>
+        </div>
+      </a>
+
+      <nav class="primary" role="navigation" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#articles">Articles</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.linkedin.com/in/dilendra" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">LinkedIn</a>
+      </nav>
+
+      <button class="mobile-toggle" aria-expanded="false" aria-controls="mobile-menu" title="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"></path>
+        </svg>
+      </button>
+    </div>
+
+    <nav id="mobile-menu" class="mobile-menu" aria-hidden="true" style="display:none">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#articles">Articles</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.linkedin.com/in/dilendra" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+  </header>
+
+  <main class="wrap" id="main" role="main">
+    <!-- HERO -->
+    <section id="home" class="hero" aria-label="Introduction">
+      <div class="hero-card reveal">
+        <div class="intro">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap">
+            <div>
+              <div style="font-size:14px;color:var(--accent)">Hello — I'm</div>
+              <h1 class="title">Dilendra Pant</h1>
+              <div class="subtitle muted">Senior Software Engineer • Java • Microservices • Cloud</div>
+            </div>
+
+            <div style="text-align:right">
+              <div style="font-size:13px;color:var(--muted)">New Delhi, India</div>
+              <div style="margin-top:10px;display:flex;gap:8px;justify-content:flex-end">
+                <a class="btn btn-primary" href="files/dilendra_prasad_pant_cv.pdf" target="_blank" rel="noopener">Download Resume</a>
+                <a class="btn btn-ghost" href="mailto:pant.dilendra@gmail.com">Contact</a>
+              </div>
+            </div>
+          </div>
+
+          <p class="lead" style="margin-top:16px">
+            With over 9 years in software development, I design and build scalable, secure microservices and cloud-native systems.
+            Expertise: Java, Spring Boot & WebFlux, Spring Cloud, Kafka, AWS, Docker, & observability (Jaeger/ELK).
+          </p>
+
+          <div class="cta-row" style="margin-top:12px">
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/dilendra" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn btn-ghost" href="#projects">Projects</a>
+          </div>
+        </div>
+
+        <aside class="profile-card" aria-label="Profile">
+          <div class="profile-avatar" role="img" aria-label="Dilendra Pant">
+            <img src="img/1674649903307.jpeg" alt="Dilendra Pant portrait" onerror="this.src='img/dd.jpeg'">
+          </div>
+
+          <div style="text-align:center">
+            <div style="font-weight:700;margin-bottom:6px">Top Skills</div>
+            <div class="skills" style="justify-content:center;margin-top:8px">
+              <span class="skill-pill">Java</span>
+              <span class="skill-pill">Spring Boot</span>
+              <span class="skill-pill">Spring Cloud</span>
+              <span class="skill-pill">Kafka</span>
+              <span class="skill-pill">AWS</span>
+            </div>
+
+            <div style="margin-top:12px;color:var(--muted);font-size:14px">
+              <div><strong>Email:</strong> <a href="mailto:pant.dilendra@gmail.com">pant.dilendra@gmail.com</a></div>
+              <div style="margin-top:6px"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/dilendra" target="_blank" rel="noopener">/in/dilendra</a></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ABOUT & SKILLS -->
+    <section id="about" class="two-col" style="margin-top:18px" aria-label="About">
+      <div class="card reveal">
+        <h2 style="margin:0 0 8px 0">Summary</h2>
+        <p class="muted">
+          I specialize in full-stack web development, microservices architecture and cloud technologies. I have hands-on experience with Spring frameworks,
+          reactive programming, REST & SOAP APIs, distributed systems, and AWS. I lead code reviews, mentor engineers, and drive features from design to production.
+        </p>
+
+        <h3 style="margin-top:14px;margin-bottom:6px">Core Experience</h3>
+        <ul class="muted" style="margin-left:18px">
+          <li>Microservices architecture (Spring Boot, Spring Cloud, WebFlux)</li>
+          <li>Event-driven systems with Kafka; persistence with MySQL, MongoDB, Redis</li>
+          <li>Cloud & infra: AWS Lambda, S3, EC2, SQS/SNS, CloudWatch, IAM, EKS</li>
+          <li>Observability: tracing (Jaeger), logging & ELK; performance troubleshooting</li>
+        </ul>
+      </div>
+
+      <div class="card reveal">
+        <h3 style="margin:0 0 8px 0">Skills & Languages</h3>
+        <div class="skills" style="margin-top:8px;justify-content:flex-start">
+          <span class="skill-pill">Spring Boot</span>
+          <span class="skill-pill">Spring WebFlux</span>
+          <span class="skill-pill">Spring Cloud</span>
+          <span class="skill-pill">Java</span>
+          <span class="skill-pill">Kafka</span>
+          <span class="skill-pill">Docker</span>
+          <span class="skill-pill">AWS</span>
+          <span class="skill-pill">MySQL</span>
+          <span class="skill-pill">MongoDB</span>
+        </div>
+
+        <h4 style="margin-top:12px;margin-bottom:6px">Languages</h4>
+        <div class="muted">
+          English (Professional Working) · Hindi (Professional Working) · Nepali (Native / Bilingual)
+        </div>
+
+        <h4 style="margin-top:12px;margin-bottom:6px">Certifications</h4>
+        <ul class="muted" style="margin-left:18px">
+          <li>Microservices: Design Patterns — Programming with Python</li>
+          <li>Java EE: Concurrency and Multithreading</li>
+          <li>Java Design Patterns: Behavioral & Structural</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="wrap" style="margin-top:20px">
+      <div class="card reveal">
+        <h2 style="margin:0 0 8px 0">Experience</h2>
+
+        <div class="timeline">
+          <div class="exp">
+            <div class="meta">Publicis Sapient — Senior Associate Platform L2</div>
+            <div class="period">September 2022 - Present · Gurugram, Haryana, India</div>
+            <p class="muted">Platform-level engineering: backend microservices, observability & cloud deployments. Building resilient multi-team services.</p>
+            <div class="muted" style="margin-top:8px"><strong>Tech:</strong> Java, Spring Boot, Kafka, AWS, MySQL, Redis</div>
+          </div>
+
+          <div class="exp">
+            <div class="meta">FNP — Senior Software Engineer</div>
+            <div class="period">July 2021 - September 2022 · Delhi, India</div>
+            <p class="muted">Worked on microservices (Moody, PSA): order-surveys, availability & reporting. Design, development & production support.</p>
+            <div class="muted" style="margin-top:8px"><strong>Tech:</strong> Java, Spring, MongoDB, Kafka, Redis, S3</div>
+          </div>
+
+          <div class="exp">
+            <div class="meta">Classteacher Learning Systems — Software Engineer</div>
+            <div class="period">March 2018 - June 2019 · Gurugram, Haryana, India</div>
+            <p class="muted">Built scalable e-learning backend systems. Feature development, integration & AWS deployments.</p>
+            <div class="muted" style="margin-top:8px"><strong>Tech:</strong> Java, Spring Boot, Hibernate, MongoDB</div>
+          </div>
+
+          <div class="exp">
+            <div class="meta">Thomson Digital (Thomson Press) — Software Developer</div>
+            <div class="period">November 2015 - December 2017 · Noida / Gangtok</div>
+            <p class="muted">Worked on TDXPS digital publishing suite: automation, SOAP APIs and production support for large publication workloads.</p>
+            <div class="muted" style="margin-top:8px"><strong>Tech:</strong> Java, JSP, JMS, MySQL</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="wrap" style="margin-top:20px">
+      <div class="card reveal">
+        <h2 style="margin:0 0 10px 0">Selected Projects</h2>
+
+        <div class="projects">
+          <div class="project">
+            <div class="proj-thumb" aria-hidden="true">
+              <img src="img/project-omantel.jpg" alt="Payment processing project thumbnail" onerror="this.style.display='none'">
+              <span aria-hidden="true">P1</span>
+            </div>
+            <div>
+              <h4 style="margin:0">Payment Processing Microservices (Omantel)</h4>
+              <p class="muted">Designed & implemented microservices for payment processing and billing. Implemented distributed locking (Oracle DB) and improved throughput via load testing and optimizations.</p>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="proj-thumb" aria-hidden="true">
+              <img src="img/project-graphql.jpg" alt="GraphQL optimization project" onerror="this.style.display='none'">
+              <span aria-hidden="true">P2</span>
+            </div>
+            <div>
+              <h4 style="margin:0">GraphQL Payment Service Optimization</h4>
+              <p class="muted">Investigated timeouts from downstream APIs; improved WebClient timeouts, retries, and added better instrumentation for reliability.</p>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="proj-thumb" aria-hidden="true">
+              <img src="img/project-moody.jpg" alt="Moody project" onerror="this.style.display='none'">
+              <span aria-hidden="true">P3</span>
+            </div>
+            <div>
+              <h4 style="margin:0">Moody & PSA (FNP)</h4>
+              <p class="muted">Moody: order-delivery surveys and NPS reporting. PSA: product shipment availability across geographies and time slots. Focus on scalability and resilience.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL ARTICLES SECTION -->
+    <section id="articles" class="wrap" style="margin-top:20px">
+      <div class="card reveal">
+        <h2 style="margin:0 0 10px 0">Technical Articles</h2>
+        <p class="muted" style="margin-bottom:20px">Sharing insights on Java, Microservices, Cloud, and System Design</p>
+        
+        <!-- Articles Container - Will be populated by JavaScript -->
+        <div id="articles-container" class="articles-container">
+          <div class="loading-articles">Loading articles...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume" class="wrap" style="margin-top:20px">
+      <div class="card reveal">
+        <h2 style="margin:0 0 8px 0">Resume</h2>
+        <div class="muted">Updated: March 2020 · <a href="files/Dilendra_Pant_CV.pdf" target="_blank" rel="noopener" style="color:var(--accent)">Download PDF</a></div>
+        <div class="resume-embed">
+          <object data="files/Dilendra_Pant_CV.pdf" type="application/pdf">
+            <iframe src="files/Dilendra_Pant_CV.pdf" title="Resume PDF">
+              <p class="muted">This browser does not support embedded PDFs. <a href="files/Dilendra_Pant_CV.pdf" style="color:var(--accent)">Download the resume</a>.</p>
+            </iframe>
+          </object>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="wrap" style="margin-top:20px">
+      <div class="card reveal">
+        <h2 style="margin:0 0 8px 0">Education</h2>
+        <div class="muted">
+          <strong>Tribhuvan University</strong><br>
+          Bachelor's degree, Computer Science and Information Technology · October 2011 - October 2015
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="wrap" style="margin-top:20px">
+      <div class="card reveal">
+        <h2 style="margin:0 0 8px 0">Contact</h2>
+        <p class="muted">Email: <a href="mailto:pant.dilendra@gmail.com">pant.dilendra@gmail.com</a> · LinkedIn: <a href="https://www.linkedin.com/in/dilendra" target="_blank" rel="noopener">/in/dilendra</a></p>
+
+        <div style="margin-top:12px">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfVvEJNq-SlZHtAUOq-SeXfMABUpyqHAb06no3iYdBkSiOjmQ/viewform?embedded=true"
+                  width="100%" height="460" frameborder="0" marginheight="0" marginwidth="0" title="Contact form">Loading…</iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Article Modal -->
+  <div id="articleModal" class="article-modal" style="display:none">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle"></h2>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="modalContent"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="wrap" style="display:flex;align-items:center;justify-content:center;gap:12px;flex-direction:column">
+      <div style="display:flex;gap:12px;align-items:center">
+        <span class="logo" style="width:40px;height:40px;border-width:2px;">
+          <img src="svg/dp-logo.png" alt="logo" style="width:100%;height:100%;object-fit:cover;border-radius:50%" onerror="this.style.display='none'">
+        </span>
+        <div style="font-weight:700">Dilendra Pant</div>
+      </div>
+      <div class="muted" style="margin-top:8px">Made with ❤️ · © <span id="year"></span></div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

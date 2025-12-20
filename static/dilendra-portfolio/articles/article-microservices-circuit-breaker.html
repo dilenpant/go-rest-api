@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circuit Breaker Pattern - Dilendra Pant</title>
+    <style>
+        .article-full {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            font-family: 'Inter', sans-serif;
+            color: #e6eef8;
+            line-height: 1.8;
+        }
+        
+        .article-header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #e6eef8;
+        }
+        
+        .article-meta {
+            display: flex;
+            gap: 20px;
+            color: #98a0b3;
+            font-size: 0.9rem;
+        }
+        
+        .article-category {
+            background: rgba(212,175,55,0.1);
+            color: #D4AF37;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+        
+        .article-content {
+            font-size: 1.1rem;
+        }
+        
+        .article-content h2 {
+            color: #D4AF37;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .article-content h3 {
+            color: #e6eef8;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+        }
+        
+        .article-content code {
+            background: rgba(255,255,255,0.05);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .article-content pre {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .article-content ul, .article-content ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .article-content li {
+            margin-bottom: 10px;
+        }
+        
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: rgba(212,175,55,0.1);
+            color: #D4AF37;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: rgba(212,175,55,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="article-full">
+        <div class="article-header">
+            <h1 class="article-title">Building Resilient Microservices with Spring Cloud Circuit Breaker</h1>
+            <div class="article-meta">
+                <span class="article-category">Microservices</span>
+                <span>March 15, 2024</span>
+                <span>8 min read</span>
+            </div>
+        </div>
+        
+        <div class="article-content">
+            <p>In distributed systems, service failures are inevitable. When one microservice fails, it can cause cascading failures throughout the system. The Circuit Breaker pattern, inspired by electrical circuit breakers, prevents this by detecting failures and providing fallback mechanisms.</p>
+            
+            <h2>Why Circuit Breaker?</h2>
+            <p>Traditional retry mechanisms can worsen failures by continuously calling failing services. Circuit breakers:</p>
+            <ul>
+                <li>Prevent cascading failures</li>
+                <li>Provide graceful degradation</li>
+                <li>Reduce latency by failing fast</li>
+                <li>Allow time for recovery</li>
+            </ul>
+            
+            <h2>Implementing with Spring Cloud Circuit Breaker</h2>
+            <p>Spring Cloud provides a unified API for circuit breakers. Here's how to implement it:</p>
+            
+            <h3>1. Add Dependencies</h3>
+            <pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-circuitbreaker-resilience4j&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+            
+            <h3>2. Configure Circuit Breaker</h3>
+            <pre><code># application.yml
+resilience4j.circuitbreaker:
+  instances:
+    paymentService:
+      slidingWindowSize: 10
+      failureRateThreshold: 50
+      waitDurationInOpenState: 10s
+      permittedNumberOfCallsInHalfOpenState: 3</code></pre>
+            
+            <h3>3. Implement with @CircuitBreaker</h3>
+            <pre><code>@Service
+public class PaymentService {
+    
+    @CircuitBreaker(name = "paymentService", 
+                   fallbackMethod = "processPaymentFallback")
+    public PaymentResponse processPayment(PaymentRequest request) {
+        // Call external payment gateway
+        return paymentGateway.process(request);
+    }
+    
+    public PaymentResponse processPaymentFallback(PaymentRequest request, 
+                                                 Throwable t) {
+        log.error("Payment service failed, using fallback", t);
+        return PaymentResponse.builder()
+            .status("QUEUED")
+            .message("Payment will be processed later")
+            .build();
+    }
+}</code></pre>
+            
+            <h2>Monitoring and Metrics</h2>
+            <p>Monitor circuit breaker states with Spring Boot Actuator:</p>
+            <pre><code>/actuator/health
+/actuator/circuitbreakers
+/actuator/metrics/resilience4j.circuitbreaker.calls</code></pre>
+            
+            <p>Circuit breakers are essential for building resilient microservices. By implementing them properly, you can ensure your system remains available even when dependencies fail.</p>
+        </div>
+        
+        <a href="javascript:window.parent.closeModal()" class="back-button">← Back to Articles</a>
+    </div>
+</body>
+</html>
