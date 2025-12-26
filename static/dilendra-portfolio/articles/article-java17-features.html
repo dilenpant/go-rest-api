@@ -1,0 +1,48 @@
+<div class="article-full">
+  <div class="article-header">
+    <h1 class="article-title">Java 17 Features Every Developer Should Know</h1>
+    <div class="article-meta">
+      <span class="article-category">Java</span>
+      <span>March 10, 2024</span>
+      <span>10 min read</span>
+    </div>
+  </div>
+  
+  <div class="article-content">
+    <p>Java 17 is a Long-Term Support (LTS) release that brings significant improvements and new features. Here are the key features every Java developer should know:</p>
+    
+    <h2>1. Sealed Classes (JEP 409)</h2>
+    <p>Sealed classes restrict which other classes or interfaces may extend or implement them:</p>
+    <pre><code>public abstract sealed class Shape
+    permits Circle, Rectangle, Triangle {
+  // ...
+}
+
+public final class Circle extends Shape {
+  // Only Circle, Rectangle, Triangle can extend Shape
+}</code></pre>
+    
+    <h2>2. Pattern Matching for switch (JEP 406)</h2>
+    <p>Enhanced pattern matching capabilities in switch expressions:</p>
+    <pre><code>String formatted = switch (obj) {
+  case Integer i -> String.format("int %d", i);
+  case Long l    -> String.format("long %d", l);
+  case Double d  -> String.format("double %f", d);
+  case String s  -> String.format("String %s", s);
+  default        -> obj.toString();
+};</code></pre>
+    
+    <h2>3. New Random Number Generators</h2>
+    <p>Introduces new interface types for random number generation:</p>
+    <pre><code>RandomGenerator generator = RandomGenerator.getDefault();
+int randomInt = generator.nextInt(100);</code></pre>
+    
+    <h2>4. Enhanced Pseudo-Random Number Generators</h2>
+    <p>New interface for PRNG algorithms with better performance and thread safety.</p>
+    
+    <h2>5. Deprecation of Security Manager</h2>
+    <p>The Security Manager is deprecated for removal, reflecting modern deployment practices.</p>
+    
+    <p>Java 17 continues to improve performance, security, and developer productivity while maintaining backward compatibility.</p>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+{
+  "featuredArticles": [
+    {
+      "id": "featured-1",
+      "title": "Microservices Anti-Patterns: Common Mistakes and How to Avoid Them",
+      "excerpt": "An in-depth look at the most common microservices anti-patterns including distributed monolith, database coupling, chatty services, and improper service boundaries. Learn practical strategies to avoid these pitfalls in your architecture.",
+      "category": "Architecture",
+      "date": "2024-03-18",
+      "readTime": "15 min read",
+      "file": "microservices-anti-patterns.html",
+      "icon": "🚨"
+    },
+    {
+      "id": "featured-2",
+      "title": "Building Event-Driven Systems with Kafka and Spring Boot: Production-Ready Patterns",
+      "excerpt": "Complete guide to implementing production-ready event-driven architectures using Apache Kafka and Spring Boot. Covers event sourcing, CQRS, saga patterns, dead letter queues, and monitoring strategies for mission-critical systems.",
+      "category": "Event-Driven",
+      "date": "2024-03-12",
+      "readTime": "18 min read",
+      "file": "kafka-spring-production.html",
+      "icon": "⚡"
+    }
+  ]
+}

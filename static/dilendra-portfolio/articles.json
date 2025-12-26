@@ -1,0 +1,58 @@
+{
+  "articles": [
+    {
+      "id": "article-1",
+      "title": "Building Resilient Microservices with Spring Cloud Circuit Breaker",
+      "excerpt": "Learn how to implement circuit breakers in Spring Boot microservices to handle failures gracefully and prevent cascading failures in distributed systems.",
+      "category": "microservices",
+      "date": "2024-03-15",
+      "readTime": "8 min read",
+      "file": "article-microservices-circuit-breaker.html"
+    },
+    {
+      "id": "article-2",
+      "title": "Java 17 Features Every Developer Should Know",
+      "excerpt": "A comprehensive guide to the new features in Java 17 including sealed classes, pattern matching, and enhanced performance improvements.",
+      "category": "java",
+      "date": "2024-03-10",
+      "readTime": "10 min read",
+      "file": "article-java17-features.html"
+    },
+    {
+      "id": "article-3",
+      "title": "Event-Driven Architecture with Apache Kafka",
+      "excerpt": "Implementing event-driven microservices using Apache Kafka for real-time data processing and decoupled system communication.",
+      "category": "kafka",
+      "date": "2024-03-05",
+      "readTime": "12 min read",
+      "file": "article-kafka-event-driven.html"
+    },
+    {
+      "id": "article-4",
+      "title": "AWS Lambda Best Practices for Java Developers",
+      "excerpt": "Optimizing AWS Lambda functions with Java: cold start reduction, memory configuration, and efficient deployment strategies.",
+      "category": "aws",
+      "date": "2024-02-28",
+      "readTime": "9 min read",
+      "file": "article-aws-lambda-java.html"
+    },
+    {
+      "id": "article-5",
+      "title": "Spring Security 6: JWT Authentication Implementation",
+      "excerpt": "Step-by-step guide to implementing JWT-based authentication and authorization in Spring Boot 3 applications.",
+      "category": "spring",
+      "date": "2024-02-20",
+      "readTime": "11 min read",
+      "file": "article-spring-security-jwt.html"
+    },
+    {
+      "id": "article-6",
+      "title": "Designing Scalable Payment Systems",
+      "excerpt": "Architecture patterns and considerations for building scalable and reliable payment processing systems.",
+      "category": "system-design",
+      "date": "2024-02-15",
+      "readTime": "15 min read",
+      "file": "article-payment-system-design.html"
+    }
+  ]
+}

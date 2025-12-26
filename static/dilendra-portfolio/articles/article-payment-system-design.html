@@ -1,0 +1,71 @@
+<div class="article-full">
+  <div class="article-header">
+    <h1 class="article-title">Building Resilient Microservices with Spring Cloud Circuit Breaker</h1>
+    <div class="article-meta">
+      <span class="article-category">Microservices</span>
+      <span>March 15, 2024</span>
+      <span>8 min read</span>
+    </div>
+  </div>
+  
+  <div class="article-content">
+    <p>In distributed systems, service failures are inevitable. When one microservice fails, it can cause cascading failures throughout the system. The Circuit Breaker pattern, inspired by electrical circuit breakers, prevents this by detecting failures and providing fallback mechanisms.</p>
+    
+    <h2>Why Circuit Breaker?</h2>
+    <p>Traditional retry mechanisms can worsen failures by continuously calling failing services. Circuit breakers:</p>
+    <ul>
+      <li>Prevent cascading failures</li>
+      <li>Provide graceful degradation</li>
+      <li>Reduce latency by failing fast</li>
+      <li>Allow time for recovery</li>
+    </ul>
+    
+    <h2>Implementing with Spring Cloud Circuit Breaker</h2>
+    <p>Spring Cloud provides a unified API for circuit breakers. Here's how to implement it:</p>
+    
+    <h3>1. Add Dependencies</h3>
+    <pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-cloud-starter-circuitbreaker-resilience4j&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+    
+    <h3>2. Configure Circuit Breaker</h3>
+    <pre><code># application.yml
+resilience4j.circuitbreaker:
+  instances:
+    paymentService:
+      slidingWindowSize: 10
+      failureRateThreshold: 50
+      waitDurationInOpenState: 10s
+      permittedNumberOfCallsInHalfOpenState: 3</code></pre>
+    
+    <h3>3. Implement with @CircuitBreaker</h3>
+    <pre><code>@Service
+public class PaymentService {
+  
+  @CircuitBreaker(name = "paymentService", 
+                 fallbackMethod = "processPaymentFallback")
+  public PaymentResponse processPayment(PaymentRequest request) {
+    // Call external payment gateway
+    return paymentGateway.process(request);
+  }
+  
+  public PaymentResponse processPaymentFallback(PaymentRequest request, 
+                                               Throwable t) {
+    log.error("Payment service failed, using fallback", t);
+    return PaymentResponse.builder()
+      .status("QUEUED")
+      .message("Payment will be processed later")
+      .build();
+  }
+}</code></pre>
+    
+    <h2>Monitoring and Metrics</h2>
+    <p>Monitor circuit breaker states with Spring Boot Actuator:</p>
+    <pre><code>/actuator/health
+/actuator/circuitbreakers
+/actuator/metrics/resilience4j.circuitbreaker.calls</code></pre>
+    
+    <p>Circuit breakers are essential for building resilient microservices. By implementing them properly, you can ensure your system remains available even when dependencies fail.</p>
+  </div>
+</div>

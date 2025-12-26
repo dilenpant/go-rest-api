@@ -1,0 +1,145 @@
+<div class="article-full">
+  <div class="article-header">
+    <h1 class="article-title">Microservices Anti-Patterns: Common Mistakes and How to Avoid Them</h1>
+    <div class="article-meta">
+      <span class="article-category">Architecture</span>
+      <span>March 18, 2024</span>
+      <span>15 min read</span>
+    </div>
+  </div>
+  
+  <div class="article-content">
+    <p>Microservices architecture promises scalability, resilience, and independent deployability. However, many teams fall into common traps that undermine these benefits. This article explores the most prevalent anti-patterns and provides practical solutions.</p>
+    
+    <h2>1. The Distributed Monolith</h2>
+    <p>This occurs when microservices are tightly coupled despite being distributed across different processes. Symptoms include:</p>
+    <ul>
+      <li>Services must be deployed together</li>
+      <li>Database-level coupling through shared schemas</li>
+      <li>Synchronous communication chains</li>
+      <li>Common release cycles across teams</li>
+    </ul>
+    
+    <h3>Solution: Implement Proper Bounded Contexts</h3>
+    <pre><code>// BAD: Tight coupling
+@Service
+public class OrderService {
+  // Directly accesses Customer database
+  @Autowired
+  private CustomerRepository customerRepository;
+}
+
+// GOOD: Independent contexts
+@Service
+public class OrderService {
+  // Uses event-driven communication
+  @EventListener
+  public void handleCustomerCreated(CustomerCreatedEvent event) {
+    // Maintain local read model
+    customerCache.save(event.getCustomerId(), event.getCustomerData());
+  }
+}</code></pre>
+    
+    <h2>2. Chatty Services Anti-Pattern</h2>
+    <p>Excessive inter-service communication creates latency and reduces resilience:</p>
+    <pre><code>// BAD: Multiple synchronous calls
+public OrderResponse createOrder(OrderRequest request) {
+  // Validate customer (HTTP call)
+  Customer customer = customerService.validate(request.getCustomerId());
+  
+  // Check inventory (HTTP call)
+  InventoryStatus inventory = inventoryService.check(request.getItems());
+  
+  // Process payment (HTTP call)
+  PaymentResult payment = paymentService.process(request.getPayment());
+  
+  // Multiple points of failure!
+}</code></pre>
+    
+    <h3>Solution: Implement API Composition or Event-Driven Approach</h3>
+    <pre><code>// GOOD: Event-driven with saga pattern
+@Service
+public class OrderOrchestrator {
+  
+  @Transactional
+  public void createOrder(OrderRequest request) {
+    // 1. Start saga
+    OrderCreatedEvent event = new OrderCreatedEvent(request);
+    kafkaTemplate.send("order-created", event);
+    
+    // 2. Services react asynchronously
+    // CustomerService validates
+    // InventoryService reserves items
+    // PaymentService processes payment
+  }
+}</code></pre>
+    
+    <h2>3. Shared Database Anti-Pattern</h2>
+    <p>The most dangerous anti-pattern where multiple services share the same database:</p>
+    <ul>
+      <li>Schema changes affect multiple services</li>
+      <li>No clear ownership of data</li>
+      <li>Transactional integrity across services becomes complex</li>
+      <li>Scaling becomes difficult</li>
+    </ul>
+    
+    <h3>Solution: Database per Service Pattern</h3>
+    <pre><code># docker-compose.yml - Each service has its own database
+version: '3.8'
+services:
+  order-service:
+    image: order-service:latest
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://order-db:5432/orderdb
+    
+  order-db:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=orderdb
+  
+  customer-service:
+    image: customer-service:latest
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://customer-db:5432/customerdb
+  
+  customer-db:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=customerdb</code></pre>
+    
+    <h2>4. Lack of Observability</h2>
+    <p>Without proper monitoring, debugging distributed systems becomes impossible:</p>
+    
+    <h3>Solution: Implement Comprehensive Observability</h3>
+    <pre><code># application.yml - Spring Boot observability config
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  
+logging:
+  pattern:
+    level: "%5p [${spring.application.name},%X{traceId},%X{spanId}]"</code></pre>
+    
+    <h2>Best Practices Summary</h2>
+    <ol>
+      <li>Design around business capabilities, not technical layers</li>
+      <li>Implement event-driven communication for loose coupling</li>
+      <li>Maintain separate databases for each service</li>
+      <li>Implement circuit breakers and retries</li>
+      <li>Establish clear API contracts and versioning</li>
+      <li>Invest in comprehensive observability from day one</li>
+      <li>Implement consumer-driven contract testing</li>
+    </ol>
+    
+    <p>Avoiding these anti-patterns requires discipline and continuous refactoring. Remember that microservices are not a silver bullet but a trade-off between complexity and scalability.</p>
+  </div>
+</div>
